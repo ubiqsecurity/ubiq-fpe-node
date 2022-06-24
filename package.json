@@ -1,19 +1,43 @@
 {
-  "name": "ubiq-fpe-node",
+  "name": "ubiq-security-fpe",
   "version": "1.0.0",
-  "description": "FPE cipher functions",
-  "main": "Bn.js",
+  "description": "Ubiq Security, Inc. Format Preserving Encryption functions",
+  "main": "index.js",
+  "author": "Ubiq Security, Inc. <support@ubiqsecurity.com> (https://www.ubiqsecurity.com/)",
+  "license": "MIT",
+  "keywords": [
+    "ubiq security",
+    "ubiq",
+    "security",
+    "encryption",
+    "client",
+    "FPE",
+    "FF1",
+    "Format Preserving Encryption"
+  ],
   "dependencies": {
-    "big-integer": "^1.6.51",
-    "crypto-js": "^4.1.1",
-    "node-forge": "^0.10.0"
+    "big-integer": "^1.6.51"
   },
   "devDependencies": {
-    "jest": "^27.4.3"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.5.1"
   },
   "scripts": {
     "test": "jest"
   },
-  "author": "Anthony Iasi",
-  "license": "ISC"
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/ubiqsecurity/ubiq-fpe-node.git"
+  },
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "homepage": "https://gitlab.com/ubiqsecurity/ubiq-fpe-node"
 }

@@ -16,28 +16,25 @@ performed on it.
 #### Using the npm or yarn package managers:
 You may want to make sure you are running the latest version of npm or yarn by first executing
 ```sh
-npm install -g npm
+$ npm install -g npm
 # or
-npm install -g yarn
+$ npm install -g yarn
 ```
 
-Install the ubiq-security package with:
+Install the ubiqsecurity-fpe package with:
 
 ```sh
-npm install ubiq-security
+$ npm install ubiqsecurity-fpe
 # or
-yarn add ubiq-security
+$ yarn add ubiqsecurity-fpe
 ```
 
 To build and install directly from a clone of the gitlab repository source:
 
 ```sh
-git clone https://gitlab.com/ubiqsecurity/ubiq-node-fpe.git
-cd ubiq-node-fpe
-npm install
-node Bn.js
-node FFX.js
-node FF1.js
+$ git clone git@gitlab.com:ubiqsecurity/ubiq-fpe-node.git
+$ cd ubiq-node-fpe
+$ npm install
 ```
 
 ### Requirements
@@ -54,7 +51,6 @@ All dependencies are pre-required in the module itself.
 
 To run the tests:
 ```sh
-$ cd test
 $ npm run test
 ```
 
@@ -77,18 +73,7 @@ your radix is 10, then the alphabet for your plain text consists of the
 characters in the string "0123456789". If your radix is 16, then the
 alphabet is the characters in the string "0123456789abcdef".
 
-More concretely, if you want to encrypt, say, a 16 digit number grouped into
-4 groups of 4 using a `-` as a delimiter as in `0123-4567-8901-2345`, then you
-would need a radix of at least 11, and you would need to translate the `-`
-character to an `a` (as that is the value that follows `9`) prior to the
-encryption. Conversely, you would need to translate an `a` to a `-` after
-decryption.
-
-This mapping of user inputs to alphabets defined by the radix is not performed
-by the library and must be done prior to calling the encrypt and after calling
-the decrypt functions.
-
-A radix of up to 36 is supported, and the alphabet for a radix of 36 is
+A radix of up to 255 is supported, and the alphabet for a radix of 36 is
 "0123456789abcdefghijklmnopqrstuvwxyz".
 
 ### Tweaks
@@ -120,20 +105,28 @@ or:
 
 ## Examples
 
-TBD
+The [unit test code](test) provides the best and simplest example of how to use the
+interfaces.
+
 
 ### FF1
 ```javascript
-    /*
-     * TBD
-     */
-```
-### FF3-1
-```javascript
-    /*
-     * TBD
+   /*
+     * @key is an array of bytes which must be 16, 24, or 32 long
+     * @twk is an array of bytes of which must be between @twkmin
+     *     and @twkmax lengths passed in. 
+     * @custom_radix_str is the custom radix string indicating valid
+     *     characters allowed by @PT and @encrypted_text.  In this
+     *     case, Radix 10 (numeric) is being used.
+     * 
+     * @PT is "user input" for the data being encrypted
      */
 
+    const custom_radix_str = "0123456789"
+
+    const ctx = new FF1(key, twk, twkmin, twkmax, custom_radix_str.length, custom_radix_str);
+    const cipher_text = ctx.encrypt(PT);
+    const decrypted_text = ctx.decrypt(cipher_text);
 ```
 
 [800-38g1]:https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38Gr1-draft.pdf

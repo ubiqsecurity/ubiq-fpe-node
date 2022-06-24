@@ -1,0 +1,55 @@
+const assert = require('assert');
+const FF3_1 = require('../lib/FF3_1');
+
+function test(key, twk, PT, CT, radix) {
+    let out = String();
+    ctx = FF3_1;
+
+    assert.equal(PT.length, CT.length);
+
+    ctx = new FF3_1(key, twk, radix);
+
+    out = ctx.encrypt(PT);
+    assert.equal(CT, out);
+
+    out = ctx.decrypt(CT);
+    assert.equal(PT, out);
+}
+
+const key = new Uint8Array(
+    [0xef, 0x43, 0x59, 0xd8,
+        0xd5, 0x80, 0xaa, 0x4f,
+        0x7f, 0x03, 0x6d, 0x6f,
+        0x04, 0xfc, 0x6a, 0x94,
+        0x3b, 0x80, 0x6a, 0xeb,
+        0x63, 0x08, 0x27, 0x1f,
+        0x65, 0xcf, 0x33, 0xc7,
+        0x39, 0x1b, 0x27, 0xf7],
+);
+
+const twk1 = new Uint8Array(
+    [0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00],
+);
+
+const twk2 = new Uint8Array(
+    [0x39, 0x38, 0x37, 0x36,
+        0x35, 0x34, 0x33],
+);
+
+const twk3 = new Uint8Array(
+    [0x37, 0x37, 0x37, 0x37,
+        0x70, 0x71, 0x72],
+);
+
+const _pt = ['890121234567890000', '89012123456789abcde'];
+
+test(
+    key.slice(0, 16),
+    twk1,
+    _pt[0],
+
+    '075870132022772250',
+
+    10,
+);
