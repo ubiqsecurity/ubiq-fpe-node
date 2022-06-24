@@ -21,12 +21,12 @@ $ npm install -g npm
 $ npm install -g yarn
 ```
 
-Install the ubiqsecurity-fpe package with:
+Install the ubiq-security-fpe package with:
 
 ```sh
-$ npm install ubiqsecurity-fpe
+$ npm install ubiq-security-fpe
 # or
-$ yarn add ubiqsecurity-fpe
+$ yarn add ubiq-security-fpe
 ```
 
 To build and install directly from a clone of the gitlab repository source:
