@@ -1,0 +1,18 @@
+{
+	"extends": [
+		"airbnb-base"
+	],
+	"rules": {
+		"no-console": "off",
+		"no-plusplus": "off",
+		"camelcase": "warn",
+		"no-useless-escape": "warn",
+		"indent": "off",
+		"no-tabs": "off",
+		"no-restricted-properties": "off",
+		"prefer-exponentiation-operator": "off"
+	},
+	"globals": {
+		"aws-sdk": "off"
+	}
+}
