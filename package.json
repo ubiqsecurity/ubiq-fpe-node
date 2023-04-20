@@ -1,6 +1,6 @@
 {
   "name": "ubiq-security-fpe",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Ubiq Security, Inc. Format Preserving Encryption functions",
   "main": "index.js",
   "author": "Ubiq Security, Inc. <support@ubiqsecurity.com> (https://www.ubiqsecurity.com/)",
