@@ -16,7 +16,7 @@
     "Format Preserving Encryption"
   ],
   "dependencies": {
-    "big-integer": "^1.6.51"
+    "big-integer": "^1.6.52"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
