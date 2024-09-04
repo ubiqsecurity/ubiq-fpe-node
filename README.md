@@ -1,3 +1,5 @@
+**The Ubiq Structured (Format Preserving Encryption) Library has been merged into the core [ubiq-node](https://github.com/ubiqsecurity/ubiq-node) to improve supportability and maintainability. This package has been deprecated and is no longer supported.**
+
 # Format Preserving Encryption in Node
 
 An implementation of the NIST-approved FF1 and FF3-1 algorithms in Node.
